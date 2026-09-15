@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Seating Plan Generator</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="index.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <div>
+                <h2>Classroom Setting Plan Generator</h2>
+            </div>
+            <!--Generate button-->
+            <button id="btn-openlist" onclick="openModel()">Generate New Setting Plan</button>
+        </header>
+        <!-- The Overlay Background -->
+        <div id="modal-overlay" class="modal-overlay" style="display:none;">
+        <div class="information" style="display:none" id="information">
+            <span class="close-btn" onclick="closeModel()">&times;</span>
+            <h2 id=info-title>Student information</h2>
+            <div id="S001" class="std-info">
+                <form>
+                    <label class="std">Student 01</label>
+                    <input type="text" id="S001-name" placeholder="Name" class="name">
+                    <input type="number" id="S001-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S001-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <select name="gender" id="S001-gender" class="name">
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                    </select>
+                    <input type="radio" id="S001-ta" value="Talkative" name="S001-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S001-no" value="Normal" name="S001-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S001-qu" value="Quiet" name="S001-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S002" class="std-info">
+                <form>
+                    <label class="std">Student 02</label>
+                    <input type="text" id="S002-name" placeholder="Name" class="name">
+                    <input type="number" id="S002-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S002-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S002-ta" value="Talkative" name="S002-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S002-no" value="Normal" name="S002-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S002-qu" value="Quiet" name="S002-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S003" class="std-info">
+                <form>
+                    <label class="std">Student 03</label>
+                    <input type="text" id="S003-name" placeholder="Name" class="name">
+                    <input type="number" id="S003-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S003-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S003-ta" value="Talkative" name="S003-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S003-no" value="Normal" name="S003-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S003-qu" value="Quiet" name="S003-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S004" class="std-info">
+                <form>
+                    <label class="std">Student 04</label>
+                    <input type="text" id="S004-name" placeholder="Name" class="name">
+                    <input type="number" id="S004-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S004-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S004-ta" value="Talkative" name="S004-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S004-no" value="Normal" name="S004-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S004-qu" value="Quiet" name="S004-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S005" class="std-info">
+                <form>
+                    <label class="std">Student 05</label>
+                    <input type="text" id="S005-name" placeholder="Name" class="name">
+                    <input type="number" id="S005-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S005-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S005-ta" value="Talkative" name="S005-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S005-no" value="Normal" name="S005-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S005-qu" value="Quiet" name="S005-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S006" class="std-info">
+                <form>
+                    <label class="std">Student 06</label>
+                    <input type="text" id="S006-name" placeholder="Name" class="name">
+                    <input type="number" id="S006-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S006-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S006-ta" value="Talkative" name="S006-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S006-no" value="Normal" name="S006-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S006-qu" value="Quiet" name="S006-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S007" class="std-info">
+                <form>
+                    <label class="std">Student 07</label>
+                    <input type="text" id="S007-name" placeholder="Name" class="name">
+                    <input type="number" id="S007-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S007-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S007-ta" value="Talkative" name="S007-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S007-no" value="Normal" name="S007-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S007-qu" value="Quiet" name="S007-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S008" class="std-info">
+                <form>
+                    <label class="std">Student 08</label>
+                    <input type="text" id="S008-name" placeholder="Name" class="name">
+                    <input type="number" id="S008-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S008-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S008-ta" value="Talkative" name="S008-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S008-no" value="Normal" name="S008-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S008-qu" value="Quiet" name="S008-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S009" class="std-info">
+                <form>
+                    <label class="std">Student 09</label>
+                    <input type="text" id="S009-name" placeholder="Name" class="name">
+                    <input type="number" id="S009-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S009-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S009-ta" value="Talkative" name="S009-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S009-no" value="Normal" name="S009-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S009-qu" value="Quiet" name="S009-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S010" class="std-info">
+                <form>
+                    <label class="std">Student 10</label>
+                    <input type="text" id="S010-name" placeholder="Name" class="name">
+                    <input type="number" id="S010-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S010-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S010-ta" value="Talkative" name="S010-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S010-no" value="Normal" name="S010-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S010-qu" value="Quiet" name="S010-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S011" class="std-info">
+                <form>
+                    <label class="std">Student 11</label>
+                    <input type="text" id="S011-name" placeholder="Name" class="name">
+                    <input type="number" id="S011-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S011-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S011-ta" value="Talkative" name="S011-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S011-no" value="Normal" name="S011-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S011-qu" value="Quiet" name="S011-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S012" class="std-info">
+                <form>
+                    <label class="std">Student 12</label>
+                    <input type="text" id="S012-name" placeholder="Name" class="name">
+                    <input type="number" id="S012-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S012-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S012-ta" value="Talkative" name="S012-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S012-no" value="Normal" name="S012-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S012-qu" value="Quiet" name="S012-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S013" class="std-info">
+                <form>
+                    <label class="std">Student 13</label>
+                    <input type="text" id="S013-name" placeholder="Name" class="name">
+                    <input type="number" id="S013-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S013-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S013-ta" value="Talkative" name="S013-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S013-no" value="Normal" name="S013-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S013-qu" value="Quiet" name="S013-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S014" class="std-info">
+                <form>
+                    <label class="std">Student 14</label>
+                    <input type="text" id="S014-name" placeholder="Name" class="name">
+                    <input type="number" id="S014-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S014-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S014-ta" value="Talkative" name="S014-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S014-no" value="Normal" name="S014-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S014-qu" value="Quiet" name="S014-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S015" class="std-info">
+                <form>
+                    <label class="std">Student 15</label>
+                    <input type="text" id="S015-name" placeholder="Name" class="name">
+                    <input type="number" id="S015-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S015-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S015-ta" value="Talkative" name="S015-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S015-no" value="Normal" name="S015-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S015-qu" value="Quiet" name="S015-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S016" class="std-info">
+                <form>
+                    <label class="std">Student 16</label>
+                    <input type="text" id="S016-name" placeholder="Name" class="name">
+                    <input type="number" id="S016-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S016-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S016-ta" value="Talkative" name="S016-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S016-no" value="Normal" name="S016-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S016-qu" value="Quiet" name="S016-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S017" class="std-info">
+                <form>
+                    <label class="std">Student 17</label>
+                    <input type="text" id="S017-name" placeholder="Name" class="name">
+                    <input type="number" id="S017-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S017-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S017-ta" value="Talkative" name="S017-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S017-no" value="Normal" name="S017-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S017-qu" value="Quiet" name="S017-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S018" class="std-info">
+                <form>
+                    <label class="std">Student 18</label>
+                    <input type="text" id="S018-name" placeholder="Name" class="name">
+                    <input type="number" id="S018-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S018-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S018-ta" value="Talkative" name="S018-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S018-no" value="Normal" name="S018-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S018-qu" value="Quiet" name="S018-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S019" class="std-info">
+                <form>
+                    <label class="std">Student 19</label>
+                    <input type="text" id="S019-name" placeholder="Name" class="name">
+                    <input type="number" id="S019-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S019-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S019-ta" value="Talkative" name="S019-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S019-no" value="Normal" name="S019-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S019-qu" value="Quiet" name="S019-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S020" class="std-info">
+                <form>
+                    <label class="std">Student 20</label>
+                    <input type="text" id="S020-name" placeholder="Name" class="name">
+                    <input type="number" id="S020-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S020-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S020-ta" value="Talkative" name="S020-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S020-no" value="Normal" name="S020-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S020-qu" value="Quiet" name="S020-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S021" class="std-info">
+                <form>
+                    <label class="std">Student 21</label>
+                    <input type="text" id="S021-name" placeholder="Name" class="name">
+                    <input type="number" id="S021-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S021-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S021-ta" value="Talkative" name="S021-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S021-no" value="Normal" name="S021-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S021-qu" value="Quiet" name="S021-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S022" class="std-info">
+                <form>
+                    <label class="std">Student 22</label>
+                    <input type="text" id="S022-name" placeholder="Name" class="name">
+                    <input type="number" id="S022-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S022-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S022-ta" value="Talkative" name="S022-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S022-no" value="Normal" name="S022-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S022-qu" value="Quiet" name="S022-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S023" class="std-info">
+                <form>
+                    <label class="std">Student 23</label>
+                    <input type="text" id="S023-name" placeholder="Name" class="name">
+                    <input type="number" id="S023-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S023-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S023-ta" value="Talkative" name="S023-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S023-no" value="Normal" name="S023-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S023-qu" value="Quiet" name="S023-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S024" class="std-info">
+                <form>
+                    <label class="std">Student 24</label>
+                    <input type="text" id="S024-name" placeholder="Name" class="name">
+                    <input type="number" id="S024-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S024-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S024-ta" value="Talkative" name="S024-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S024-no" value="Normal" name="S024-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S024-qu" value="Quiet" name="S024-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S025" class="std-info">
+                <form>
+                    <label class="std">Student 25</label>
+                    <input type="text" id="S025-name" placeholder="Name" class="name">
+                    <input type="number" id="S025-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S025-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S025-ta" value="Talkative" name="S025-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S025-no" value="Normal" name="S025-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S025-qu" value="Quiet" name="S025-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S026" class="std-info">
+                <form>
+                    <label class="std">Student 26</label>
+                    <input type="text" id="S026-name" placeholder="Name" class="name">
+                    <input type="number" id="S026-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S026-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S026-ta" value="Talkative" name="S026-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S026-no" value="Normal" name="S026-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S026-qu" value="Quiet" name="S026-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S027" class="std-info">
+                <form>
+                    <label class="std">Student 27</label>
+                    <input type="text" id="S027-name" placeholder="Name" class="name">
+                    <input type="number" id="S027-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S027-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S027-ta" value="Talkative" name="S027-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S027-no" value="Normal" name="S027-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S027-qu" value="Quiet" name="S027-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S028" class="std-info">
+                <form>
+                    <label class="std">Student 28</label>
+                    <input type="text" id="S028-name" placeholder="Name" class="name">
+                    <input type="number" id="S028-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S028-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S028-ta" value="Talkative" name="S028-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S028-no" value="Normal" name="S028-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S028-qu" value="Quiet" name="S028-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S029" class="std-info">
+                <form>
+                    <label class="std">Student 29</label>
+                    <input type="text" id="S029-name" placeholder="Name" class="name">
+                    <input type="number" id="S029-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S029-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S029-ta" value="Talkative" name="S029-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S029-no" value="Normal" name="S029-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S029-qu" value="Quiet" name="S029-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S030" class="std-info">
+                <form>
+                    <label class="std">Student 30</label>
+                    <input type="text" id="S030-name" placeholder="Name" class="name">
+                    <input type="number" id="S030-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S030-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S030-ta" value="Talkative" name="S030-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S030-no" value="Normal" name="S030-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S030-qu" value="Quiet" name="S030-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S031" class="std-info">
+                <form>
+                    <label class="std">Student 31</label>
+                    <input type="text" id="S031-name" placeholder="Name" class="name">
+                    <input type="number" id="S031-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S031-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S031-ta" value="Talkative" name="S031-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S031-no" value="Normal" name="S031-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S031-qu" value="Quiet" name="S031-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S032" class="std-info">
+                <form>
+                    <label class="std">Student 32</label>
+                    <input type="text" id="S032-name" placeholder="Name" class="name">
+                    <input type="number" id="S032-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S032-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S032-ta" value="Talkative" name="S032-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S032-no" value="Normal" name="S032-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S032-qu" value="Quiet" name="S032-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S033" class="std-info">
+                <form>
+                    <label class="std">Student 33</label>
+                    <input type="text" id="S033-name" placeholder="Name" class="name">
+                    <input type="number" id="S033-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S033-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S033-ta" value="Talkative" name="S033-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S033-no" value="Normal" name="S033-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S033-qu" value="Quiet" name="S033-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S034" class="std-info">
+                <form>
+                    <label class="std">Student 34</label>
+                    <input type="text" id="S034-name" placeholder="Name" class="name">
+                    <input type="number" id="S034-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S034-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S034-ta" value="Talkative" name="S034-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S034-no" value="Normal" name="S034-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S034-qu" value="Quiet" name="S034-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S035" class="std-info">
+                <form>
+                    <label class="std">Student 35</label>
+                    <input type="text" id="S035-name" placeholder="Name" class="name">
+                    <input type="number" id="S035-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S035-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S035-ta" value="Talkative" name="S035-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S035-no" value="Normal" name="S035-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S035-qu" value="Quiet" name="S035-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S036" class="std-info">
+                <form>
+                    <label class="std">Student 36</label>
+                    <input type="text" id="S036-name" placeholder="Name" class="name">
+                    <input type="number" id="S036-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S036-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S036-ta" value="Talkative" name="S036-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S036-no" value="Normal" name="S036-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S036-qu" value="Quiet" name="S036-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S037" class="std-info">
+                <form>
+                    <label class="std">Student 37</label>
+                    <input type="text" id="S037-name" placeholder="Name" class="name">
+                    <input type="number" id="S037-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S037-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S037-ta" value="Talkative" name="S037-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S037-no" value="Normal" name="S037-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S037-qu" value="Quiet" name="S037-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S038" class="std-info">
+                <form>
+                    <label class="std">Student 38</label>
+                    <input type="text" id="S038-name" placeholder="Name" class="name">
+                    <input type="number" id="S038-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S038-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S038-ta" value="Talkative" name="S038-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S038-no" value="Normal" name="S038-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S038-qu" value="Quiet" name="S038-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S039" class="std-info">
+                <form>
+                    <label class="std">Student 39</label>
+                    <input type="text" id="S039-name" placeholder="Name" class="name">
+                    <input type="number" id="S039-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S039-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S039-ta" value="Talkative" name="S039-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S039-no" value="Normal" name="S039-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S039-qu" value="Quiet" name="S039-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="S040" class="std-info">
+                <form id="std-info-form">
+                    <label class="std">Student 40</label>
+                    <input type="text" id="S040-name" placeholder="Name" class="name">
+                    <input type="number" id="S040-height" placeholder="Height" class="height" min="120" max="200">
+                    <input type="number" id="S040-rank" placeholder="Rank" class="rank" min="1" max="40">
+                    <input type="radio" id="S040-ta" value="Talkative" name="S040-type" class="behaviour">
+                    <label for="Talkative">Talkative</label>
+                    <input type="radio" id="S040-no" value="Normal" name="S040-type" class="behaviour">
+                    <label for="Normal">Normal</label>
+                    <input type="radio" id="S040-qu" value="Quiet" name="S040-type" class="behaviour">
+                    <label for="Quiet">Quiet</label>
+                    <input type="reset" value="Reset" class="btn-reset">
+                </form>
+                <hr>
+            </div>
+            <div id="reminder">
+                <p>**Please only choose <b><u>6 most talkative students</u></b> and <b><u>6 most quiet students</u></b> to pair up them in the setting plan</p>
+                <p>**Please note that <b><u>Top 3</u></b> and <b><u>Bottom 3</u></b> students can only enter the behaviuo of <b><u>"Normal"</u></b></p>
+                <p>**It's required to enter <b><u>40 Students'</u></b> records before generating</p>
+            </div>
+            <div>
+                <button id="btn-cancel" onclick="closeModel()" class="btn-sumbit">Cancel</button>
+                <button id="btn-generate" onclick="buttonSubmit()">Generate</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Classroom Setting Plan -->
+        <div id="claasroom-plan">
+            <div id="white-board">FRONT : WHITEBOARD / TEACHER DESK</div>
+
+            <div class="classroom-grid">
+                <!--row 1-->
+                <!--talktive pair 1-->
+                <div id="talk1" class="talk-pair">
+                    <span class="name" id="talk1-name"><b>Name</b></span>
+                    <span class="seat-id">Talkative std</span>
+                </div>
+                <div id="quiet1" class="talk-pair">
+                    <span class="name" id="quiet1-name"><b>Name</b></span>
+                    <span class="seat-id">Quiet std</span>
+                </div>
+                <!--normal pair 1-->
+                <div id="nor1" class="pair">
+                    <span class="name" id="nor1-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 1</span>
+                </div>
+                <div id="nor2" class="pair">
+                    <span class="name" id="nor2-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 1</span>
+                </div>
+                <!--normal pair 2-->
+                <div id="nor3" class="pair">
+                    <span class="name" id="nor3-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 2</span>
+                </div>
+                <div id="nor4" class="pair">
+                    <span class="name" id="nor4-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 2</span>
+                </div>
+                <!--talktive pair 2-->
+                <div id="talk2" class="talk-pair">
+                    <span class="name" id="talk2-name"><b>Name</b></span>
+                    <span class="seat-id">Talkative std</span>
+                </div>
+                <div id="quiet2" class="talk-pair">
+                    <span class="name" id="quiet2-name"><b>Name</b></span>
+                    <span class="seat-id">Quiet std</span>
+                </div>
+
+
+                <!--row 2-->
+                <!--top pair 1-->
+                <div id="top1" class="top-pair">
+                    <span class="name" id="top3-name"><b>Name</b></span>
+                    <span class="seat-id">Top3 std</span>
+                </div>
+                <div id="bot1" class="top-pair">
+                    <span class="name" id="bot3-name"><b>Name</b></span>
+                    <span class="seat-id">Bottom3 std</span>
+                </div>
+                <!--top pair 2-->
+                <div id="top2" class="top-pair">
+                    <span class="name" id="top2-name"><b>Name</b></span>
+                    <span class="seat-id">Top2 std</span>
+                </div>
+                <div id="bot2" class="top-pair">
+                    <span class="name" id="bot2-name"><b>Name</b></span>
+                    <span class="seat-id">Bottom2 std</span>
+                </div>
+                <!--top pair 3-->
+                <div id="top3" class="top-pair">
+                    <span class="name" id="top1-name"><b>Name</b></span>
+                    <span class="seat-id">Top1 std</span>
+                </div>
+                <div id="bot3" class="top-pair">
+                    <span class="name" id="bot1-name"><b>Name</b></span>
+                    <span class="seat-id">Bottom1 std</span>
+                </div>
+                <!--normal pair 3-->
+                <div id="nor5" class="pair">
+                    <span class="name" id="nor5-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 3</span>
+                </div>
+                <div id="nor6" class="pair">
+                    <span class="name" id="nor6-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 3</span>
+                </div>
+
+                
+                <!--row 3-->
+                <!--normal pair 4-->
+                <div id="nor7" class="pair">
+                    <span class="name" id="nor7-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 4</span>
+                </div>
+                <div id="nor8" class="pair">
+                    <span class="name" id="nor8-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 4</span>
+                </div>
+                <!--talktive pair 3-->
+                <div id="talk3" class="talk-pair">
+                    <span class="name" id="talk3-name"><b>Name</b></span>
+                    <span class="seat-id">Talkative std</span>
+                </div>
+                <div id="quiet3" class="talk-pair">
+                    <span class="name" id="quiet3-name"><b>Name</b></span>
+                    <span class="seat-id">Quiet std</span>
+                </div>
+                <!--normal pair 5-->
+                <div id="nor9" class="pair">
+                    <span class="name" id="nor9-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 5</span>
+                </div>
+                <div id="nor10" class="pair">
+                    <span class="name" id="nor10-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 5</span>
+                </div>
+                <!--talktive pair 4-->
+                <div id="talk4" class="talk-pair">
+                    <span class="name" id="talk4-name"><b>Name</b></span>
+                    <span class="seat-id">Talkative std</span>
+                </div>
+                <div id="quiet4" class="talk-pair">
+                    <span class="name" id="quiet4-name"><b>Name</b></span>
+                    <span class="seat-id">Quiet std</span>
+                </div>
+
+
+                <!--row 4-->
+                <!--normal pair 6-->
+                <div id="nor11" class="pair">
+                    <span class="name" id="nor11-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 6</span>
+                </div>
+                <div id="nor12" class="pair">
+                    <span class="name" id="nor12-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 6</span>
+                </div>
+                <!--normal pair 7-->
+                <div id="nor13" class="pair">
+                    <span class="name" id="nor13-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 7</span>
+                </div>
+                <div id="nor14" class="pair">
+                    <span class="name" id="nor14-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 7</span>
+                </div>
+                <!--normal pair 8-->
+                <div id="nor15" class="pair">
+                    <span class="name" id="nor15-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 8</span>
+                </div>
+                <div id="nor16" class="pair">
+                    <span class="name" id="nor16-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 8</span>
+                </div>
+                <!--normal pair 9-->
+                <div id="nor17" class="pair">
+                    <span class="name" id="nor17-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 9</span>
+                </div>
+                <div id="nor18" class="pair">
+                    <span class="name" id="nor18-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 9</span>
+                </div>
+
+                <!--row 5-->
+                <!--talktive pair 5-->
+                <div id="talk5" class="talk-pair">
+                    <span class="name" id="talk5-name"><b>Name</b></span>
+                    <span class="seat-id">Talkative std</span>
+                </div>
+                <div id="quiet5" class="talk-pair">
+                    <span class="name" id="quiet5-name"><b>Name</b></span>
+                    <span class="seat-id">Quiet std</span>
+                </div>
+                <!--normal pair 10-->
+                <div id="nor19" class="pair">
+                    <span class="name" id="nor19-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 10</span>
+                </div>
+                <div id="nor20" class="pair">
+                    <span class="name" id="nor20-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 10</span>
+                </div>
+                <!--normal pair 11-->
+                <div id="nor21" class="pair">
+                    <span class="name" id="nor21-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 11</span>
+                </div>
+                <div id="nor22" class="pair">
+                    <span class="name" id="nor22-name"><b>Name</b></span>
+                    <span class="seat-id">Pair 11</span>
+                </div>
+                <!--talktive pair 6-->
+                <div id="talk6" class="talk-pair">
+                    <span class="name" id="talk6-name"><b>Name</b></span>
+                    <span class="seat-id">Talkative std</span>
+                </div>
+                <div id="quiet6" class="talk-pair">
+                    <span class="name" id="quiet6-name"><b>Name</b></span>
+                    <span class="seat-id">Quiet std</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
